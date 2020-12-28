@@ -31,6 +31,7 @@ app.post('/register',(req,res)=>{
   //req.body에는 json형식으로 데이터가 담겨있음
     const user = new User(req.body)
 
+    
     user.save((err, userInfo)=>{//mongodb메소드 정보들이 user에 저장됨
       if(err) return res.json({success: false,err})
 
