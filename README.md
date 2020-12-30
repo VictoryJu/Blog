@@ -1,2 +1,3 @@
-# .gitignore에는 commit하지 않아도 되는 파일들을 작성하면 commit에서 제외된다.
-# mongodb의 uri를 따로 모듈화 해놓고 .gitignore를 이용 함으로써 mongodb의 패스워드가 노출되는것을 막을 수 있다.
+### bcrypt를 이용하여 패스워드 암호화 작업
+### userSchema.pre 사용시 index.js app.post부분  
+### const user = new User(req.body) 여기서 pre에 담긴 내용이 끝나지않는이상 다음으로 넘어가지않는다.
