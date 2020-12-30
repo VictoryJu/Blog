@@ -46,8 +46,19 @@ userSchema.pre('save', function(next) {
             next()
             })
         })
+    } else{
+        next() //비밀번호를 바꾸지 않는 경우에는 next()를 넣어주어 함수를 탈출하게한다.
     }
 })
+
+
+userSchema.methods.comparePassword = function(plainPassword,cb){
+    // plainPassword 입력한 패스워드 와 암호화된 패스워드가 같은지 체크해야함
+    bcrypt.compare(plainPassword, this.password, function(err, isMatch){
+        if(err) return cb(err),
+        cb(null, isMatch)
+    }) 
+}
 
 const User = mongoose.model('User', userSchema);
 
