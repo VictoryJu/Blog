@@ -1,3 +1,4 @@
-### bcrypt를 이용하여 패스워드 암호화 작업
-### userSchema.pre 사용시 index.js app.post부분  
-### const user = new User(req.body) 여기서 pre에 담긴 내용이 끝나지않는이상 다음으로 넘어가지않는다.
+### jsonwebtoken과 cookie를 사용하여 로그인 진행 
+### 로그인때 비밀번호가 일치하면 토큰생성 한뒤 쿠키에 저장
+### auth.js는 인증과정 middleware이다
+### 클라이언트 쿠키에서 토큰을 가져오고 복호화한뒤 유저를 찾는다
