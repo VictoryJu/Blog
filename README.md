@@ -1,3 +1,3 @@
-### 이미지 파일을 적용시키고 싶으면
-### public폴더가 아니라 src폴더에 넣어야
-### webpack처리가 되어 사용할수있다.
+### HOC = 해당 component에 들어갈 자격이있는지 체크
+### rfce로 functional component 만들기
+### rfce가 안된다면 마켓에서 es7
