@@ -1,9 +1,66 @@
-import React from 'react'
 
-function LoginPage() {
+import React, {useState} from 'react';
+import {useDispatch} from 'react-redux';
+import {loginUser} from '../../../_actions/user_action';
+
+function LoginPage(props) {
+    const dispatch = useDispatch();
+
+    const [Email, setEmail] = useState("")
+    const [Password, setPassword] = useState("")
+
+    // 명칭은 자기 마음대로
+    const onEmailHandler = (event) =>{
+        setEmail(event.currentTarget.value)
+    }
+
+    const onPasswordHandler = (event) =>{
+        setPassword(event.currentTarget.value)
+    }
+
+    const onSubmitHandler = (event) =>{
+        //page가 다시 새로고침 되지 않도록 하기위해 preventDefault()사용
+        event.preventDefault();
+
+        let body = {
+            email: Email,
+            password: Password
+        }
+
+        dispatch(loginUser(body))
+            .then(response=>{
+                if(response.payload.loginSuccess){
+                    props.history.push('/')
+                }else(
+                    alert('Error')
+                )
+            })
+      
+
+    }
+    
+
     return (
-        <div>
-            LoginPage
+        <div style={{
+            display: 'flex',justifyContent: 'center', alignItems: 'center'
+            , width: '100%', height: '100vh'
+        }}>
+
+            <form style={{ display:'flex', flexDirection:'column'}}
+                onSubmit={onSubmitHandler}
+            >
+                    <label>Email</label>
+                    <input type="email" value={Email} onChange={onEmailHandler} />
+                    <label>Password</label>
+                    <input type="password" value={Password} onChange={onPasswordHandler} />
+
+                    <br />
+                    <button>
+                        Login
+                    </button>
+
+            </form>
+        
         </div>
     )
 }
