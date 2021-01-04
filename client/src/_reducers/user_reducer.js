@@ -1,7 +1,8 @@
 
 import {
     LOGIN_USER, 
-    REGISTER_USER
+    REGISTER_USER,
+    AUTH_USER
 } from '../_actions/types';
 
 export default function (state = {}, action) {
@@ -12,6 +13,10 @@ export default function (state = {}, action) {
         case REGISTER_USER:
             return {...state, register: action.payload}
             break;
+        case AUTH_USER:
+            //payload에 서버에서 가져온 유저의 모든 정보가 담겨있음
+           return {...state, userData: action.payload}
+           break;
         default:
             return state;
     }
