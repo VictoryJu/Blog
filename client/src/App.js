@@ -27,8 +27,8 @@ function App() {
           <Route exact path="/main" component={Auth(Nav, true)} />
         </Switch>
       </div>
-
     </Router>
+  
   );
 }
 
