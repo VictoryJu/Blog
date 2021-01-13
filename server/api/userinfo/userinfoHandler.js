@@ -13,7 +13,7 @@ router.get('/',function(req,res){
     res.send({User}.findone())
 })
 
-router.post('/users/register', (req, res) => {
+router.post('/register', (req, res) => {
 
     //회원 가입 할떄 필요한 정보들을  client에서 가져오면 
     //그것들을  데이터 베이스에 넣어준다. 
@@ -27,7 +27,7 @@ router.post('/users/register', (req, res) => {
     })
   })
   
-  router.post('/users/login', (req, res) => {
+  router.post('/login', (req, res) => {
   
     // console.log('ping')
     //요청된 이메일을 데이터베이스에서 있는지 찾는다.
@@ -66,7 +66,7 @@ router.post('/users/register', (req, res) => {
   
   // role 1 어드민    role 2 특정 부서 어드민 
   // role 0 -> 일반유저   role 0이 아니면  관리자 
-  router.get('/users/auth', auth, (req, res) => {
+  router.get('/auth', auth, (req, res) => {
     //여기 까지 미들웨어를 통과해 왔다는 얘기는  Authentication 이 True 라는 말.
     res.status(200).json({
       _id: req.user._id,
@@ -80,7 +80,7 @@ router.post('/users/register', (req, res) => {
     })
   })
   
-  router.get('/users/logout', auth, (req, res) => {
+  router.get('/logout', auth, (req, res) => {
     // console.log('req.user', req.user)
     User.findOneAndUpdate({ _id: req.user._id },
       { token: "" }

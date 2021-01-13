@@ -3,7 +3,7 @@ const app = express()
 const config = require('./config/key');
 const userAPI = require('./api/userinfo/userinfoHandler');
 
-app.use('/api',userAPI)
+app.use('/users',userAPI)
 //application/json 
 /*app.get('/',function(req,res){
   res.send("HELLO")
