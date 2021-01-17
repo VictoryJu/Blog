@@ -21,7 +21,9 @@ function NavBar() {
         <div className="NavBar">
 
             <div className="black-nav">
-                <div>개발 Blog</div>
+                <div>
+                   <a href="localhost:3000/">개발 Blog</a> 
+                </div>
             </div>
 
             <button onClick={updatetitle}> 버튼 </button>

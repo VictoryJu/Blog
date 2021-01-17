@@ -5,12 +5,12 @@ import { withRouter } from 'react-router-dom';
 function LandingPage(props) {
 
     useEffect(() => {
-        axios.get('/api/hello')
+        axios.get('/users/hello')
             .then(response => console.log(response.data))
     }, [])
 
     const onClickHandler = () => {
-        axios.get(`/api/users/logout`)
+        axios.get(`/users/logout`)
             .then(response => {
                 if (response.data.success) {
                     props.history.push("/login")
