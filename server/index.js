@@ -1,14 +1,10 @@
 const express = require('express')
 const app = express()
 const config = require('./config/key');
-const userAPI = require('./api/userinfo/userinfoHandler');
+const users = require('./api/userinfo/userinfoHandler');
 
-app.use('/users',userAPI)
-//application/json 
-/*app.get('/',function(req,res){
-  res.send("HELLO")
-})
-*/
+app.use('/users',users);
+
 const mongoose = require('mongoose')
 mongoose.connect(config.mongoURI, {
   useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true, useFindAndModify: false
